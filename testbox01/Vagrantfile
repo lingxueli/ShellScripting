@@ -14,8 +14,12 @@ Vagrant.configure("2") do |config|
   # boxes at https://vagrantcloud.com/search.
   config.vm.box = "jasonc/centos7"
 
+  # update the hostname VM
   config.vm.hostname = "testbox01"
-  
+
+  # assign IP address VM, ping it to test the config
+  config.vm.network "private_network", ip: "10.9.8.7"
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
