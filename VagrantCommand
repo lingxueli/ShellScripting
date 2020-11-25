@@ -1,0 +1,45 @@
+# download and store Vagrant box on local system
+# source: https://app.vagrantup.com/boxes/search
+vagrant box add jasonc/centos7
+
+# Create a folder for Vagrant project
+mkdir testbox01
+
+# Create Vagrant configure file, be sure you're at the Vagrant project folder
+cd testbox01
+vagrant init jasonc/centos7
+
+# This initializes the current directory to be a Vagrant environment by creating an initial Vagrantfile if one does not already exist.
+
+# create virtual machine and start it
+vagrant up
+
+# This command creates and configures guest machines according to your Vagrantfile.
+
+# Open virtualbox; confirm That It's Running
+# This command confirms the status as well
+vagrant status
+
+C:\Users\lingx\OneDrive\Documents\shellscripting\testbox01>vagrant status
+Current machine states:
+
+default                   running (virtualbox)
+
+The VM is running. To stop this VM, you can run `vagrant halt` to
+shut it down forcefully, or you can run `vagrant suspend` to simply
+suspend the virtual machine. In either case, to restart it again,
+simply run `vagrant up`.
+
+# ssh to the vm
+vagrant ssh
+
+C:\Users\lingx\OneDrive\Documents\shellscripting\testbox01>vagrant ssh
+[vagrant@localhost ~]$
+
+# Now you are connected to the Linux virtual machine as the vagrant user. The vagrant user has full sudo (administrative) privileges
+
+# Exit the vm
+[vagrant@localhost ~]$ exit
+
+# Stop the VM
+vagrant halt
