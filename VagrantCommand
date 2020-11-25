@@ -41,5 +41,5 @@ C:\Users\lingx\OneDrive\Documents\shellscripting\testbox01>vagrant ssh
 # Exit the vm
 [vagrant@localhost ~]$ exit
 
-# Stop the VM
+# run "vagrant halt" followed by "vagrant up" to activate any change from vagrantfile
 vagrant halt
