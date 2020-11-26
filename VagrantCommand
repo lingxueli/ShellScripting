@@ -43,3 +43,9 @@ C:\Users\lingx\OneDrive\Documents\shellscripting\testbox01>vagrant ssh
 
 # run "vagrant halt" followed by "vagrant up" to activate any change from vagrantfile
 vagrant halt
+
+# or use "vagrant reload" to restart the vm and load the new configuration
+vagrant reload
+
+# command to destroy VM
+vagrant destroy
