@@ -10,17 +10,24 @@ then
 	exit 1
 fi
 
-# get the username
-read -p "Enter the username: " USERNAME
+# if the user doesn't supply at least one argument, then give them help
+if [[ ${#} -lt 1 ]]
+then
+        echo "ERROR: at least one parameter is required"
+        echo "Usage: ${0} USERNAME [COMMENT]..."
+	exit 1  
+fi
 
-# get the full name
-read -p "Enter the full name: " FULLNAME
-
-# get the password
-read -p "Enter the password: " PASSWORD
+# generate password
+PASSWORD=$(date +%s%N | sha256sum | head -c32)
 
 # create the user with the password 
-useradd -c "${FULLNAME}" ${USERNAME}
+USERNAME=${1}
+
+shift
+COMMENT="${@}"
+
+useradd -c "${COMMENT}" ${USERNAME}
 
 # check to see if the useradd command succeed
 if [[ ${?} -ne 0 ]]
