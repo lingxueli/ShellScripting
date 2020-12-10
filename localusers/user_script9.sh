@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # this script demonstrate case statement
-
+# help case
+# man bash, search for "case"
 case "${1}" in
   start)
     echo 'starting.'
