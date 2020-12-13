@@ -44,6 +44,31 @@ do
 	esac
 done
 
+echo "Number of args: ${#}"
+echo "All args: ${@}"
+echo "First arg: ${1}"
+echo "Second arg: ${2}"
+echo "Third arg: ${3}"
+
+# inspect OPTIND
+echo "OPTIND: ${OPTIND}"
+
+# remove the options while leaving the remaining arguments.
+shift "$(( OPTIND - 1 ))"
+# arithmetic expansion
+
+echo 'After the shift:'
+echo "Number of args: ${#}"
+echo "All args: ${@}"
+echo "First arg: ${1}"
+echo "Second arg: ${2}"
+echo "Third arg: ${3}"
+
+if [[ "${#}" -gt 0 ]]
+then
+	usage
+fi
+
 if [[ "${VERBOSE}" = 'true' ]]
 then
 	echo 'Generating a password'
