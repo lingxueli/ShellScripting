@@ -1,0 +1,10 @@
+    echo '10.9.8.11 server01' | sudo tee -a /etc/hosts
+    echo '10.9.8.12 server02' | sudo tee -a /etc/hosts
+    ping -c 3 server01
+    ping -c 3 server02
+    ssh-keygen
+    ssh-copy-id server01
+    ssh server01
+    ssh server01 hostname
+    ssh-copy-id server02
+    ssh server02
